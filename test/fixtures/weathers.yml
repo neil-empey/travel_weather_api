@@ -1,0 +1,47 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dt: 1
+  temp1: 1.5
+  wind_speed1: 1.5
+  wind_deg1: 1.5
+  precip_intensity1: 1.5
+  dew_point1: 1.5
+  road_state1: 1
+  road_temp1: 1.5
+  alert1: MyString
+  event1: MyString
+  event_level1: 1
+  temp2: 1.5
+  wind_speed2: 1.5
+  wind_deg2: 1.5
+  precip_intensity2: 1.5
+  dew_point2: 1.5
+  road_state2: 1
+  road_temp2: 1.5
+  alert2: MyString
+  event2: MyString
+  event_level2: 1
+
+two:
+  dt: 1
+  temp1: 1.5
+  wind_speed1: 1.5
+  wind_deg1: 1.5
+  precip_intensity1: 1.5
+  dew_point1: 1.5
+  road_state1: 1
+  road_temp1: 1.5
+  alert1: MyString
+  event1: MyString
+  event_level1: 1
+  temp2: 1.5
+  wind_speed2: 1.5
+  wind_deg2: 1.5
+  precip_intensity2: 1.5
+  dew_point2: 1.5
+  road_state2: 1
+  road_temp2: 1.5
+  alert2: MyString
+  event2: MyString
+  event_level2: 1
