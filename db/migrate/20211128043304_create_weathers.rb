@@ -1,27 +1,23 @@
 class CreateWeathers < ActiveRecord::Migration[6.1]
   def change
     create_table :weathers do |t|
-      t.integer :dt
-      t.float :temp1
-      t.float :wind_speed1
-      t.float :wind_deg1
-      t.float :precip_intensity1
-      t.float :dew_point1
-      t.integer :road_state1
-      t.float :road_temp1
-      t.string :alert1
-      t.string :event1
-      t.integer :event_level1
-      t.float :temp2
-      t.float :wind_speed2
-      t.float :wind_deg2
-      t.float :precip_intensity2
-      t.float :dew_point2
-      t.integer :road_state2
-      t.float :road_temp2
-      t.string :alert2
-      t.string :event2
-      t.integer :event_level2
+      t.integer :dt, :array => true, :default => '{}'
+      t.float :temp, :array => true, :default => '{}'
+      t.float :feels, :array => true, :default => '{}'
+      t.float :tempMin, :array => true, :default => '{}'
+      t.float :tempMax, :array => true, :default => '{}'
+      t.float :pressure, :array => true, :default => '{}'
+      t.integer :seaLevel, :array => true, :default => '{}'
+      t.integer :grndLevel, :array => true, :default => '{}'
+      t.integer :humidity, :array => true, :default => '{}'
+      t.string :description, :array => true, :default => '{}'
+      t.integer :clouds, :array => true, :default => '{}'
+      t.float :windSpeed, :array => true, :default => '{}'
+      t.integer :windDir, :array => true, :default => '{}'
+      t.float :prob, :array => true, :default => '{}'
+      t.float :amount, :array => true, :default => '{}'
+      t.integer :timeZone, :array => true, :default => '{}'
+
 
       t.timestamps
     end
