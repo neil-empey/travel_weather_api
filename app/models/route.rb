@@ -14,6 +14,10 @@ class Route < ApplicationRecord
 
     response = HTTParty.get(url)
 
+    array = response.parsed_response["route"]["legs"][0]["maneuvers"]
+
+    #forEach in array need to pull ["startPoint"]["lng"], ["startPoint"]["lat"]
+
     puts response
 
     end
