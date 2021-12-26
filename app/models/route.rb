@@ -14,7 +14,7 @@ class Route < ApplicationRecord
     array = response.parsed_response["route"]["legs"][0]["maneuvers"]
     setOfCoordinates = array.map.with_index {|x, i| x["startPoint"]}
 
-    #OpenWeatherApi example call response = HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=43.6166163&lon=-116.200886&units=imperial&exclude=alerts,minutely,hourly,daily&appid=22a302067ee032df09b48ac978a218e1")
+    #OpenWeatherApi example call response = HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=43.6166163&lon=-116.200886&units=imperial&exclude=alerts,minutely,hourly,daily&appid=")
 
     puts setOfCoordinates
 
