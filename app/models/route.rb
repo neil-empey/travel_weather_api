@@ -14,11 +14,11 @@ class Route < ApplicationRecord
     array = response.parsed_response["route"]["legs"][0]["maneuvers"]
     puts array
 
-<<<<<<< HEAD
+
     setOfDirections = array.map {|x| x["narrative"]}
-=======
+
     #OpenWeatherApi example call response = HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=43.6166163&lon=-116.200886&units=imperial&exclude=alerts,minutely,hourly,daily&appid=")
->>>>>>> 2b7c65e6eec03f4eca759d9b4efaa780d3e1481b
+
 
     setOfDirections
 
