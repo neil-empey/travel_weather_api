@@ -45,10 +45,11 @@ class RoutesController < ApplicationController
     route_params = {dt: dt, lat1: lat1, long1: long1, lat2: lat2, long2: long2}
 
     @route = Route.new(route_params)
-    @route.directions
+
 
     if @route.save
-      render json: @route
+      directionList = @route.directions
+      render json: directionList
     else
       render json: "didn't process"
     end

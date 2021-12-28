@@ -12,11 +12,17 @@ class Route < ApplicationRecord
     response = HTTParty.get(url)
 
     array = response.parsed_response["route"]["legs"][0]["maneuvers"]
-    setOfCoordinates = array.map.with_index {|x, i| x["startPoint"]}
+    puts array
 
-    #OpenWeatherApi example call response = HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=43.6166163&lon=-116.200886&units=imperial&exclude=alerts,minutely,hourly,daily&appid=22a302067ee032df09b48ac978a218e1")
+    setOfDirections = array.map {|x| x["narrative"]}
 
-    puts setOfCoordinates
+    setOfDirections
+
+    # setOfCoordinates = array.map.with_index {|x, i| x["startPoint"]}
+    #
+    # weather = setOfCoordinates.map {|x| HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=#{x["lat"]}&lon=#{x["lng"]}&units=imperial&exclude=minutely,hourly,alerts&appid=#{Rails.application.credentials.weather[:secret_key]}") }
+
+    #puts weather
 
     end
 
