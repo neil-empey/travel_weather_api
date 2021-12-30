@@ -12,21 +12,20 @@ class Route < ApplicationRecord
     response = HTTParty.get(url)
 
     array = response.parsed_response["route"]["legs"][0]["maneuvers"]
-    puts array
-
+    time = DateTime.now.to_s(:time)
+    routeTime = response.parsed_response["route"]["formattedTime"]
 
     setOfDirections = array.map {|x| x["narrative"]}
 
     #OpenWeatherApi example call response = HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=43.6166163&lon=-116.200886&units=imperial&exclude=alerts,minutely,hourly,daily&appid=")
 
+    setOfCoordinates = array.map.with_index {|x, i| x["startPoint"]}
 
-    setOfDirections
+    weather = setOfCoordinates.map {|x| HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=#{x["lat"]}&lon=#{x["lng"]}&units=imperial&exclude=minutely,hourly,alerts&appid=#{Rails.application.credentials.weather[:secret_key]}") }
 
-    # setOfCoordinates = array.map.with_index {|x, i| x["startPoint"]}
-    #
-    # weather = setOfCoordinates.map {|x| HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=#{x["lat"]}&lon=#{x["lng"]}&units=imperial&exclude=minutely,hourly,alerts&appid=#{Rails.application.credentials.weather[:secret_key]}") }
+    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections}
 
-    #puts weather
+    weatherDirections
 
     end
 
