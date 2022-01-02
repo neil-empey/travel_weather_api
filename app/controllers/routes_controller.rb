@@ -30,16 +30,18 @@ class RoutesController < ApplicationController
 
   def create
 
-    url1 = "http://api.openweathermap.org/geo/1.0/direct?q=#{params["destinations"]["origin"]}&limit=1&appid=#{Rails.application.credentials.weather[:secret_key]}"
+    url1 = "https://app.geocodeapi.io/api/v1/search?apikey=#{Rails.application.credentials.geo[:key]}&text=#{params["destinations"]["origin"]}"
 
-    url2 = "http://api.openweathermap.org/geo/1.0/direct?q=#{params["destinations"]["dest"]}&limit=1&appid=#{Rails.application.credentials.weather[:secret_key]}"
+    url2 = "https://app.geocodeapi.io/api/v1/search?apikey=#{Rails.application.credentials.geo[:key]}&text=#{params["destinations"]["dest"]}"
 
     response1 = HTTParty.get(url1)
     response2 = HTTParty.get(url2)
-    lat2 = response2[0]["lat"]
-    long2 = response2[0]["lon"]
-    lat1 = response1[0]["lat"]
-    long1 = response1[0]["lon"]
+    coorArray1 = response1.parsed_response["features"][0]["geometry"]["coordinates"]
+    coorArray2 = response2.parsed_response["features"][0]["geometry"]["coordinates"]
+    lat2 = coorArray2[1]
+    long2 = coorArray2[0]
+    lat1 = coorArray1[1]
+    long1 = coorArray1[0]
     dt = Time.now.to_i
 
     route_params = {dt: dt, lat1: lat1, long1: long1, lat2: lat2, long2: long2}
