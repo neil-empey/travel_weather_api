@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails API for the route_weather repo
 
-Things you may want to cover:
+- Ruby version 2.6.8
 
-* Ruby version
+- Database creation and server
 
-* System dependencies
+Run rails s
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run rails db:migrate

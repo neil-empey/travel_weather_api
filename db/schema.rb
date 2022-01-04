@@ -17,36 +17,29 @@ ActiveRecord::Schema.define(version: 2021_11_28_043304) do
 
   create_table "routes", force: :cascade do |t|
     t.integer "dt"
-    t.float "lat1"
-    t.float "long1"
-    t.float "lat2"
-    t.float "long2"
+    t.string "place1"
+    t.string "place2"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "weathers", force: :cascade do |t|
-    t.integer "dt"
-    t.float "temp1"
-    t.float "wind_speed1"
-    t.float "wind_deg1"
-    t.float "precip_intensity1"
-    t.float "dew_point1"
-    t.integer "road_state1"
-    t.float "road_temp1"
-    t.string "alert1"
-    t.string "event1"
-    t.integer "event_level1"
-    t.float "temp2"
-    t.float "wind_speed2"
-    t.float "wind_deg2"
-    t.float "precip_intensity2"
-    t.float "dew_point2"
-    t.integer "road_state2"
-    t.float "road_temp2"
-    t.string "alert2"
-    t.string "event2"
-    t.integer "event_level2"
+    t.integer "dt", default: [], array: true
+    t.float "temp", default: [], array: true
+    t.float "feels", default: [], array: true
+    t.float "tempMin", default: [], array: true
+    t.float "tempMax", default: [], array: true
+    t.float "pressure", default: [], array: true
+    t.integer "seaLevel", default: [], array: true
+    t.integer "grndLevel", default: [], array: true
+    t.integer "humidity", default: [], array: true
+    t.string "description", default: [], array: true
+    t.integer "clouds", default: [], array: true
+    t.float "windSpeed", default: [], array: true
+    t.integer "windDir", default: [], array: true
+    t.float "prob", default: [], array: true
+    t.float "amount", default: [], array: true
+    t.integer "timeZone", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
