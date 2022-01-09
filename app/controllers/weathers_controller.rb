@@ -15,15 +15,15 @@ class WeathersController < ApplicationController
 
 
   def create(lat1, lon1, dt1, lat2, lon2, dt2)
-    url = https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={Rails.application.credentials.weather.secret_key}
+    url = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={Rails.application.credentials.weather.secret_key}"
 
 
 
 
 
-    response = HTTParty.post(url, {headers: {"Content-Type" => "application/json"}, body}
-
-    puts response
+    # response = HTTParty.post(url, {headers: {"Content-Type" => "application/json"}, body}
+    #
+    # puts response
 
     #@weather = Weather.new(weather_params)
 
