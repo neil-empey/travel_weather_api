@@ -2,7 +2,10 @@
   "name": "route-weather",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:neil-empey/route_weather.git",
+  "repository": {
+    "url": "https://github.com/neil-empey/travel_weather_api.git",
+    "type": "git"
+  },
   "author": "Neil Empey <argus.two.2@gmail.com>",
   "license": "MIT",
   "scripts": {
