@@ -9,7 +9,7 @@ local:
 google:
   service: GCS
   project: route-weather
-  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'] %>
+  credentials: <%= Rails.application.credentials.google[:key] %>
   bucket: mendenhall-bucket
 
   google_dev:
